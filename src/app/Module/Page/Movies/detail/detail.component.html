@@ -1,0 +1,80 @@
+
+<section class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-area-content">
+                    <h1>Movie</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- breadcrumb area end -->
+<!-- transformers area start -->
+<section class="transformers-area">
+    <div class="container">
+        <div class="transformers-box">
+            <div class="row flexbox-center">
+                <div class="col-lg-5 text-lg-left text-center">
+                    <div class="transformers-content">
+                        <img [src]="'https://image.tmdb.org/t/p/w500/'+ pelicula().backdrop_path" alt="about" />
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="transformers-content">
+                        <h2>{{pelicula().original_title}}</h2>
+                        <p>
+                            <ng-container *ngFor="let genres of pelicula().genres"> {{genres.name}} |</ng-container>
+                        </p>
+                        <ul>
+                            <li>
+                                <div class="transformers-left">
+                                    Movie:
+                                </div>
+                                <div class="transformers-right">
+                                    <a href="#">{{pelicula().genres[0]?.name}}</a>
+                                </div>
+                            </li>
+                            
+                           
+                            <li>
+                                <div class="transformers-left">
+                                    Release:
+                                </div>
+                                <div class="transformers-right">
+                                    {{pelicula().release_date}}
+                                </div>
+                            </li>
+                            <li>
+                                <div class="transformers-left">
+                                    Language:
+                                </div>
+                                <div class="transformers-right">
+                                    <ng-container *ngFor="let spokenlanguages of pelicula().spoken_languages">{{spokenlanguages.english_name}}, </ng-container>
+                                </div>
+                            </li>
+                           
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a (click)="addFavorite(pelicula())" class="theme-btn"><i class="icofont icofont-ticket" ></i>Add to Favorite</a>
+        </div>
+    </div>
+</section><!-- transformers area end -->
+<!-- details area start -->
+<section class="details-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="details-content">
+                    <div class="details-overview">
+                        <h2>Overview</h2>
+                        <p>{{pelicula().overview}}</p>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+</section><!-- details area end -->
